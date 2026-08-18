@@ -1,7 +1,7 @@
 const Patient = require('../models/Patient');
 
 exports.getAllPatients = async (req, res) => {
-  const patients = await Patient.find().populate('assignedDoctor');
+  const patients = await Patient.find();
   res.json(patients);
 };
 
