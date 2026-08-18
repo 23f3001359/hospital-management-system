@@ -1,10 +1,12 @@
 const express = require('express');
 const cors = require('cors');
-const morgan = require('morgan')
+const morgan = require('morgan');
 require('dotenv').config();
 const connectDB = require('./config/db');
+const ensureAdmin = require('./utils/ensure_admin')
 
 connectDB();
+ensureAdmin();
 
 const app = express();
 app.use(cors());

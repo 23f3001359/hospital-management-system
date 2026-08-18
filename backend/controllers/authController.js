@@ -97,6 +97,7 @@ exports.login = async (req, res)=>{
         if (user.isBlacklisted) {return res.status(403).json({message: 'Account is blacklisted'})}
 
         const isMatch = await user.comparePassword(password);
+        // console.log(isMatch);        
 
         if (!isMatch) {return res.status(401).json({message: 'Invalid Password'})}
 
