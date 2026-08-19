@@ -5,7 +5,7 @@ const {
 } = require('../controllers/patientController');
 const {protect, authorizeRoles} = require('../middleware/auth');
 
-router.get('/', protect, getAllPatients);
+router.get('/', protect, authorizeRoles("admin"), getAllPatients);
 router.get('/:id', protect, getPatientById);
 router.post('/', createPatient); // registration is public per your Register Form
 router.put('/:id', protect, updatePatient);

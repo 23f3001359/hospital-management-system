@@ -6,13 +6,13 @@ const ensureAdmin = async ()=>{
         const checkAdmin = await User.findOne({role: "admin"});
         if (checkAdmin){
             console.log("Admin already exists");
-            return
+            return;
         }
-        const hash = await bcrypt.genSalt(10);
-        const hashed = await bcrypt.hash("admin123", hash);
-        User.create({
+        // const hash = await bcrypt.genSalt(10);
+        // const hashed = await bcrypt.hash("admin123", hash);
+        await User.create({
             username: "admin",
-            password: hashed,
+            password: "admin123",
             role: "admin"
         });
         console.log("Default admin user created");
