@@ -28,7 +28,7 @@ exports.register = async (req, res) =>{
 
         if (!username || !password || !fullName || !age || !gender || !contact) {
             return res.status(400).json({
-                message: "Username, Password, Full Name, Age, Gender, Contact"
+                message: "Username, Password, Full Name, Age, Gender or Contact are missing"
             });
         }
 
